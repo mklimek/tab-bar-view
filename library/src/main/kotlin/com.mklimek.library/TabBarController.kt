@@ -54,7 +54,7 @@ class TabBarController(context: Context, val tabs: List<Tab>, val tabBarView: Ta
 
         private var tabs = mutableListOf<Tab>()
 
-        fun addTab(title: String, iconId: Drawable, backgroundId: Drawable, backgroundSelectedId: Drawable): TabBuilder{
+        fun addTab(title: String, iconId: Drawable?, backgroundId: Drawable?, backgroundSelectedId: Drawable?): TabBuilder{
             tabs.add(Tab(title, iconId, backgroundId, backgroundSelectedId))
             return this
         }
@@ -64,7 +64,7 @@ class TabBarController(context: Context, val tabs: List<Tab>, val tabBarView: Ta
         }
     }
 
-    class Tab(val title: String, val iconId: Drawable, val background: Drawable, val backgroundSelected: Drawable){
+    class Tab(val title: String, val iconId: Drawable?, val background: Drawable?, val backgroundSelected: Drawable?){
     }
 
 }

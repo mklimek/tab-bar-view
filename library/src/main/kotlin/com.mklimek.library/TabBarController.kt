@@ -60,7 +60,9 @@ class TabBarController(context: Context, val tabs: List<Tab>, val tabBarView: Ta
         }
 
         fun build(): List<Tab>{
-            return tabs
+            val result = tabs.toList()
+            tabs.clear()
+            return result
         }
     }
 

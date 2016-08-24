@@ -43,5 +43,6 @@ controller.setCurrentItem(0);
 ```
 
 
-#How it looks like?
+#How it can look like?
+How nice drawables do you have? :)
 <a href="url"><img src="https://raw.githubusercontent.com/mklimek/tab-bar-view/master/screenshot.png" height="550" ></a>

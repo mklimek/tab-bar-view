@@ -17,7 +17,7 @@ TabBarController controller = new TabBarController(this, tabs, bottomView);
 controller.setListener(new TabBarListener() {
     @Override
     public void pageHasBeenChanged(int position) {
-        Log.d("Example", "current page: " + position);
+        //Change fragments here or... or something
     }
 });
 controller.setCurrentItem(0);

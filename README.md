@@ -1,5 +1,5 @@
 # tab-bar-view
-TabBarView for Android is implemented in Kotlin and is based just on `View` class.
+TabBarView is very lightweight lib for Android implemented in Kotlin and it's based just on `View` class.
 
 #How to use it in Java?
 add it in `onCreate()`:

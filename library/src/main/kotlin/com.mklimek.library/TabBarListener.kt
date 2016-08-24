@@ -1,6 +1,6 @@
 package com.mklimek.library
 
 
-interface BottomTabBarListener {
+interface TabBarListener {
     fun pageHasBeenChanged(position: Int)
 }

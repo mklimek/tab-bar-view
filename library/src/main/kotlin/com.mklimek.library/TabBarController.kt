@@ -4,22 +4,21 @@ import android.content.Context
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.widget.TextView
-import org.w3c.dom.Text
 
 
-class BottomTabBarController(context: Context, val tabs: List<Tab>, val bottomTabBarView: BottomTabBarView) {
+class TabBarController(context: Context, val tabs: List<Tab>, val tabBarView: TabBarView) {
 
     private var current = 0
 
-    private var listener: BottomTabBarListener? = null
+    private var listener: TabBarListener? = null
 
     init{
         val inflater = LayoutInflater.from(context)
         for(tab in tabs){
-            val textView = inflater.inflate(R.layout.bottom_tab_bar_item, bottomTabBarView, false) as TextView
+            val textView = inflater.inflate(R.layout.bottom_tab_bar_item, tabBarView, false) as TextView
             styleItem(tab, textView)
             textView.setOnClickListener { setCurrentItem(tabs.indexOf(tab)) }
-            bottomTabBarView.addView(textView)
+            tabBarView.addView(textView)
         }
     }
 
@@ -33,23 +32,23 @@ class BottomTabBarController(context: Context, val tabs: List<Tab>, val bottomTa
     fun getTabsAsTextViews(): List<TextView>{
         var children = mutableListOf<TextView>()
         tabs.forEach {
-            children.add(bottomTabBarView.getChildAt(tabs.indexOf(it)) as TextView)
+            children.add(tabBarView.getChildAt(tabs.indexOf(it)) as TextView)
         }
         return children
     }
 
-    fun setListener(listener: BottomTabBarListener){
+    fun setListener(listener: TabBarListener){
         this.listener = listener
     }
 
     fun setCurrentItem(currentItem: Int) {
         current = currentItem
         tabs.filter { tabs.indexOf(it) != current }.forEach {
-            val child = bottomTabBarView.getChildAt(tabs.indexOf(it))
+            val child = tabBarView.getChildAt(tabs.indexOf(it))
             child.setBackgroundResource(it.backgroundId)
         }
         val selectedTab = tabs.first { tabs.indexOf(it) == current }
-        val selectedChild = bottomTabBarView.getChildAt(tabs.indexOf(selectedTab))
+        val selectedChild = tabBarView.getChildAt(tabs.indexOf(selectedTab))
         selectedChild.setBackgroundResource(selectedTab.backgroundSelectedId)
 
         listener?.pageHasBeenChanged(current)

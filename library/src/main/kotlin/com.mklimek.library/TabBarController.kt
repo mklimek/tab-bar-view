@@ -9,17 +9,29 @@ import android.widget.TextView
 
 class TabBarController(context: Context, val tabs: List<Tab>, val tabBarView: TabBarView) {
 
+    var tintSelectedColor = 0
+    var tintSelectedEnabled = false
+
     var currentItem = 0
         set(value) {
             field = value
             tabs.filter { tabs.indexOf(it) != value }.forEach {
                 val child = tabBarView.getChildAt(tabs.indexOf(it))
                 child.background = it.background
+                if(tintSelectedEnabled){
+                    val tv = child as TextView
+                    tv.setTextColor(Color.BLACK)
+                    it.iconId?.colorFilter = null
+                }
             }
             val selectedTab = tabs.first { tabs.indexOf(it) == value }
             val selectedChild = tabBarView.getChildAt(tabs.indexOf(selectedTab))
             selectedChild.background = selectedTab.backgroundSelected
-
+            if(tintSelectedEnabled){
+                val tv = selectedChild as TextView
+                tv.setTextColor(tintSelectedColor)
+                selectedTab.iconId?.colorFilter = LightingColorFilter(Color.BLACK, tintSelectedColor)
+            }
             listener?.pageHasBeenChanged(value)
         }
 

@@ -1,6 +1,8 @@
 # tab-bar-view
 TabBarView is very lightweight lib for Android implemented in Kotlin and it's based just on `View` class.
 
+[![](https://jitpack.io/v/mklimek/tab-bar-view.svg)](https://jitpack.io/#mklimek/tab-bar-view)
+
 #Add dependency
 Add it in your root build.gradle at the end of repositories:
 ```gradle

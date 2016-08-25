@@ -2,6 +2,7 @@ package com.mklimek.library
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.widget.TextView
